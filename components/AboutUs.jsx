@@ -2,9 +2,10 @@ import React from 'react';
 
 var Aboutus = React.createClass({
 	render : function(){
+		var message = this.props.data.counter || ""
 		return (
 				<div>
-				We are doing great!!!!!!!!
+				{message.data?message.data.info:""}
 				</div>
 			)
 	}

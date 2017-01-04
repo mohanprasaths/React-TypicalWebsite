@@ -1,4 +1,4 @@
-export const INFO = "INFO"
+export const GETINFO = "INFO"
 export const LOGIN = "LOGIN"
 export const GETPROFILE = "GETPROFILE"
 export const GETAUTHOR = "GETAUTHOR"
