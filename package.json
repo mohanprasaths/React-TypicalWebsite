@@ -1,0 +1,28 @@
+{
+  "name": "typicalwebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohanprasaths/React-TypicalWebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohanprasaths/React-TypicalWebsite/issues"
+  },
+  "homepage": "https://github.com/mohanprasaths/React-TypicalWebsite#readme",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-redux": "^5.0.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
