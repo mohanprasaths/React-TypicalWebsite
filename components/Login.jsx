@@ -1,5 +1,6 @@
 import React from 'react';
-import login from '../actions/actions.js'
+import {login} from '../actions/actions.js'
+import {connect} from 'react-redux';
 
 var Login = React.createClass({
 	handleEmailChange: function(e) {
@@ -18,22 +19,22 @@ handlePasswordChange: function(e) {
 			)
 	},
 	handleLogin: function() {
-		login('s','n')
+		this.props.loginUser('s','s');
 }
 })
 
 const mapStateToProps = (state) => {
 	return {
-		counter : state.basic.info
+		loginInfo : state.basic.loginInfo
 	}
 } 
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		login : ()=>{ dispatch(login()) }
+		loginUser : (name,pass)=>{ dispatch(login(name,pass)) }
 	}
 }
 
-const MyApp = connect(mapStateToProps, mapDispatchToProps)(App);
+const MyLogin = connect(mapStateToProps, mapDispatchToProps)(Login);
 
-export default Login;
+export default MyLogin;

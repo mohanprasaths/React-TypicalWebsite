@@ -1,4 +1,4 @@
-import {GETINFO} from './actionTypes.js'
+import {GETINFO,LOGIN} from './actionTypes.js'
 import fetch from 'isomorphic-fetch'
 const URL = 'http://212.47.246.115:9510'
 
@@ -14,12 +14,16 @@ export function login(email,password){
 	data.append('email','alexey@plumflowerinternational.com');
 	data.append('password','password1')
 	return dispatch=>{
-		return fetch(URL+'/login', {method: 'POST',body: data}).then(response=>response.json()).then(json=>dispatch(LOGINUSER(json)))
+		return fetch(URL+'/login', {method: 'POST',body: data}).then(response=>{return response.json()}).then(json=>dispatch(LOGINUSER(json)))
 	}
 }
 
 export function LOGINUSER(json){
 	console.log(json)
+	return {
+		type : LOGIN,
+		data : json
+	}
 }
 
 export function INFO(json){
