@@ -9,34 +9,57 @@ import {getInfo} from './actions/actions.js'
 
 
 var App = React.createClass({
-   componentDidMount: function() {
-   	 this.props.getInfo();
-   },
-   render() {
-      return (
-      	<div>
-      	      	{this.props["loginSuccess"]["success"]?
-      	      	 (<div><LoginSuccess /></div>) 
-      	      	 : 
-      	      	(<div><div>
-        		 <ul className="header">
-            <Link to="/aboutus">
-            <input type="button" value="About Us" />
-            </Link>
-            <Link to="/login">
-            <input type="button" value="Login" />
-            </Link>
+	componentDidMount: function() {
+		this.props.getInfo();
+	},
+	componentWillUpdate: function(nextProps, nextState) {
+		if(this.props["loginSuccess"]["success"]){
+			console.log("changed")
+		browserHistory.push('/profile');
 
-         </ul>
-         <div className="content">
-				{this.props.children && React.cloneElement(this.props.children,{data: this.props , dispatch:this.props.dispatch  }) }
-         </div>
-         </div></div>)}
+		}
+	},
+	componentWillReceiveProps: function(nextProps) {
+		if(this.props["loginSuccess"]["success"]){
+			console.log("changed")
+		browserHistory.push('/profile');
 
+		}
+	},
+	componentDidUpdate: function(prevProps, prevState) {
+					console.log("changed")
 
-         </div>
-      );
-   }
+		if(this.props["loginSuccess"]["success"]){
+			console.log("changed")
+		browserHistory.push('/profile');
+
+		}
+	},
+	render() {
+		return (
+			<div>
+			{this.props["loginSuccess"]["success"]?
+			(<div><LoginSuccess /></div>) 
+			: 
+			(<div><div>
+				<ul className="header">
+				<Link to="/aboutus">
+				<input type="button" value="About Us" />
+				</Link>
+				<Link to="/login">
+				<input type="button" value="Login" />
+				</Link>
+
+				</ul>
+
+				</div></div>)}
+
+			<div className="content">
+			{this.props.children && React.cloneElement(this.props.children,{data: this.props , dispatch:this.props.dispatch  }) }
+			</div>
+			</div>
+			);
+	}
 })
 
 const mapStateToProps = (state) => {
