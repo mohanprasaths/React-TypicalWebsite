@@ -5,3 +5,6 @@ export const GETAUTHOR = "GETAUTHOR"
 export const GETQUOTE = "GETQUOTE"
 export const LOGOUT = "LOGOUT"
 export const UPDATEINPROGRESS = "UPDATEINPROGRESS"
+export const PROFILEDATA = "PROFILEDATA"
+export const INVALID = "INVALID"
+

@@ -14,25 +14,31 @@ var App = React.createClass({
 	},
 	render() {
 		return (
-			<div>
+			<div >
+			<div className="container-fluid parentContainer">
 			{this.props["loginSuccess"]["success"]?
 			(<div><LoginSuccess /></div>) 
 			: 
-			(<div><div>
-				<ul className="header">
-				<Link to="/aboutus">
-				<input type="button" value="About Us" />
-				</Link>
-				<Link to="/login">
-				<input type="button" value="Login" />
-				</Link>
+			(
+				<div className="row">
+				    <div className="col-sm-1">
+				      <Link to="/aboutus">
+						<input type="button" className="btn-default btn" value="About Us" />
+					  </Link>
+					  </div>
+					  <div className="col-sm-1">
+					  <Link to="/login">
+						<input type="button" className="btn-default btn" value="Login" />
+					  </Link>
+				    </div>
+				</div>
+			)}
 
-				</ul>
-
-				</div></div>)}
-
-			<div className="content">
-			{this.props.children && React.cloneElement(this.props.children,{data: this.props , dispatch:this.props.dispatch  }) }
+			  <div className="row">
+			  <div className="col-sm-12">
+			    <h1>{this.props.children && React.cloneElement(this.props.children,{data: this.props , dispatch:this.props.dispatch  }) }</h1>
+			  </div>
+			  </div>
 			</div>
 			</div>
 			);

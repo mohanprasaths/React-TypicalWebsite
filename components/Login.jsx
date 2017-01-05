@@ -10,23 +10,32 @@ var Login = React.createClass({
 		this.setState({password: e.target.value});
 	},
 	render : function(){
+		var classForGroup ="form-group " + this.props.error === true?"has-error":"";
 		return (
-			<div>
-			<input type="text" id="email" onChange={this.handleEmailChange}/>
-			<input type="text" id="password" onChange={this.handlePasswordChange}/>
-			<input type="submit" onClick={this.handleLogin}/>
+			<div >
+			<div className={classForGroup}>
+			  <label htmlFor="usr" className="control-label font20">Email Address:</label>
+			  <input type="text" className="form-control" id="usr" placeholder="Enter Email " onChange={this.handleEmailChange}/>
+			</div>
+			<div className={classForGroup}>
+			  <label htmlFor="pwd" className="control-label font20">Password:</label>
+			  <input type="password" className="form-control" id="pwd" placeholder="Password" onChange={this.handlePasswordChange}/>
+			</div>
+			<button type="submit" className="btn btn-primary" onClick={this.handleLogin}>Submit</button>
+			<div>{this.props.error?"Invalid Data":" "}</div>
 			</div>
 			)
 	},
 	handleLogin: function() {
-		this.props.loginUser('s','s');
+		this.props.loginUser(this.state.email,this.state.password);
 
 	}
 })
 
 const mapStateToProps = (state) => {
 	return {
-		loginInfo : state.basic.loginInfo
+		loginInfo : state.basic.loginInfo,
+		error : state.AppUIStatus.invalidLogin
 	}
 } 
 
