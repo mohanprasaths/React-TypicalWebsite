@@ -1,2 +1,2 @@
 # React-TypicalWebsite
-<iframe width="630" height="394" src="https://www.opentest.co/embed/c8946b70d36011e68531cf81a6426bba" frameborder="0" allowfullscreen></iframe>
+<img src="https://cloud.githubusercontent.com/assets/12637959/21688970/d46da3d8-d394-11e6-86c2-e229489d8019.gif" />
