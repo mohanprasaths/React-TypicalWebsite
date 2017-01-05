@@ -3,6 +3,7 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import Profile from './Profile.jsx'
 
 
+
 var MainPage = React.createClass({
 	render : function(){
 		return(

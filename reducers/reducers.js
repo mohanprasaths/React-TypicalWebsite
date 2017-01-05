@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
-import {GETINFO,LOGIN,GETPROFILE} from '../actions/actionTypes.js'
+import {GETINFO,LOGIN,GETPROFILE,UPDATEINPROGRESS} from '../actions/actionTypes.js'
+import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 
 function basic(state={},action){
@@ -17,8 +18,22 @@ function profileInfo(state={},action){
 	}
 }
 
+function reRoutting(state={},action){
+	switch(action.type){
+		case LOGIN : {browserHistory.push('/profile'); return state;}
+		default : return state;
+	}
+}
+
+function AppUIStatus(state={},action){
+	switch(action.type){
+		case UPDATEINPROGRESS : return Object.assign({},state,{cancelUpdate : action.data})
+		default : return state
+	}
+}
+
 const myApp = combineReducers({
-	basic , profileInfo
+	basic , profileInfo , reRoutting ,AppUIStatus
 })
 
 export default myApp

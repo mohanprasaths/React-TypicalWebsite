@@ -12,29 +12,6 @@ var App = React.createClass({
 	componentDidMount: function() {
 		this.props.getInfo();
 	},
-	componentWillUpdate: function(nextProps, nextState) {
-		if(this.props["loginSuccess"]["success"]){
-			console.log("changed")
-		browserHistory.push('/profile');
-
-		}
-	},
-	componentWillReceiveProps: function(nextProps) {
-		if(this.props["loginSuccess"]["success"]){
-			console.log("changed")
-		browserHistory.push('/profile');
-
-		}
-	},
-	componentDidUpdate: function(prevProps, prevState) {
-					console.log("changed")
-
-		if(this.props["loginSuccess"]["success"]){
-			console.log("changed")
-		browserHistory.push('/profile');
-
-		}
-	},
 	render() {
 		return (
 			<div>
